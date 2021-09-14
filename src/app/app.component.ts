@@ -12,9 +12,11 @@ export class AppComponent implements OnInit {
   title = 'RoamlerTest';
   res: any;
   position: any;
-  constructor(private apiService: ApiService,public dialog: MatDialog) {
+  
+  constructor(private apiService: ApiService, public dialog: MatDialog) {
 
   }
+
   ngOnInit(){
     this.getLocations();
     this.getGeoLocation();
@@ -49,16 +51,6 @@ export class AppComponent implements OnInit {
       .subscribe(
         (res)=>{
           this.getLocations();
-        }
-      )
-
-  }
-
-  addLocation(){
-    this.apiService.post(`api/location`, {})
-      .subscribe(
-        (res)=>{
-          console.log(res);
         }
       )
   }

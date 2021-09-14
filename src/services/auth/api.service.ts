@@ -17,6 +17,11 @@ export class ApiService {
   constructor(private http: HttpClient) {
   }
 
+  test<HttpResponseModel>(): Observable<any> {
+    const url = 'https://nominatim.openstreetmap.org/search?q=muharremfejza';
+    return this.http.get<HttpResponseModel>(url);
+  }
+
   post<HttpResponseModel>(path: string, data: any): Observable<any> {
     const url = `${environment.apiUrl}/${path}`;
     return this.http.post<HttpResponseModel>(url, data, httpOptions);
